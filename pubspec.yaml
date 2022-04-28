@@ -1,0 +1,44 @@
+name: ebuy
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  font_awesome_flutter: ^9.2.0
+  smooth_page_indicator: ^1.0.0+2
+  pinput: ^1.2.2
+  flutter_svg: ^1.0.3
+  curved_navigation_bar: ^1.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+    - assets/images/onboarding/
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+
