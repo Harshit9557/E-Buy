@@ -25,3 +25,6 @@ Color kHomeScreenServicesContainerColor = Color(0xFFF1F6F7);
 Color kWalletScreenContainerColor = Color(0xFF67BFCF);
 Color kSettingsScreenLightContainerHeadingColor = Color(0xFF505359);
 Color kSuccessTextColor = Color(0xFF51C896);
+Color kCircleBorderColor = Color(0x5FC4E8EE);
+Color kAdvertiseContainerColor = Color(0xFFC5E7FF);
+Color kAdvertiseContainerTextColor = Color(0xFFC4C4C4);

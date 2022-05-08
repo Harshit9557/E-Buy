@@ -1,6 +1,10 @@
 import 'package:ebuy/components/custom_switch.dart';
 import 'package:ebuy/constants.dart';
 import 'package:ebuy/screens/authentication/login_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/annual_plan/annual_plan_main_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/annual_plan/renew_plan.dart';
+import 'package:ebuy/screens/bottom_bar/home/drawer/wallet/transaction_history/transaction_history_screen.dart';
+import 'package:ebuy/screens/bottom_bar/profile/post_offer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -29,19 +33,20 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: width - 150,
-                width: width - 68,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                width: width - 48,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                ),
                 child: Stack(
                   children: [
                     Container(
-                      width: width - 68,
+                      width: width - 48,
                       height: width - 205,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
@@ -306,45 +311,6 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        //advertise
-                                        GestureDetector(
-                                          // onTap: () =>
-                                          //     Navigator.of(context).push(
-                                          //   MaterialPageRoute(
-                                          //     builder: (context) =>
-                                          //         AdvertiseScreen(),
-                                          //   ),
-                                          // ),
-                                          child: Row(
-                                            children: [
-                                              SizedBox(
-                                                width: 2,
-                                              ),
-                                              Image.asset(
-                                                  'assets/icons/drawer_icons/advertise.png'),
-                                              SizedBox(
-                                                width: 12,
-                                              ),
-                                              Text(
-                                                "Advertise",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 14,
-                                                  color:
-                                                      kLoadingScreenTextColor,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 15),
-                                          child: Container(
-                                            height: 0.5,
-                                            color: kDrawerDividerColor,
-                                          ),
-                                        ),
                                         //status
                                         Row(
                                           children: [
@@ -382,13 +348,13 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                                         ),
                                         //my transaction
                                         GestureDetector(
-                                          // onTap: () =>
-                                          //     Navigator.of(context).push(
-                                          //   MaterialPageRoute(
-                                          //     builder: (context) =>
-                                          //         TransactionHistoryScreen(),
-                                          //   ),
-                                          // ),
+                                          onTap: () =>
+                                              Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TransactionHistoryScreen(),
+                                            ),
+                                          ),
                                           child: Row(
                                             children: [
                                               Icon(
@@ -421,13 +387,13 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                                         ),
                                         //Check Plans
                                         GestureDetector(
-                                          // onTap: () =>
-                                          //     Navigator.of(context).push(
-                                          //   MaterialPageRoute(
-                                          //     builder: (context) =>
-                                          //         AnnualPlanMainScreen(),
-                                          //   ),
-                                          // ),
+                                          onTap: () =>
+                                              Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  AnnualPlanMainScreen(),
+                                            ),
+                                          ),
                                           child: Row(
                                             children: [
                                               Icon(
@@ -460,13 +426,13 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                                         ),
                                         //renew validity
                                         GestureDetector(
-                                          // onTap: () =>
-                                          //     Navigator.of(context).push(
-                                          //   MaterialPageRoute(
-                                          //     builder: (context) =>
-                                          //         RenewAnnualPlanScreen(),
-                                          //   ),
-                                          // ),
+                                          onTap: () =>
+                                              Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  RenewAnnualPlanScreen(),
+                                            ),
+                                          ),
                                           child: Row(
                                             children: [
                                               Icon(
@@ -497,54 +463,15 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                                             color: kDrawerDividerColor,
                                           ),
                                         ),
-                                        //post event
-                                        GestureDetector(
-                                          // onTap: () =>
-                                          //     Navigator.of(context).push(
-                                          //   MaterialPageRoute(
-                                          //     builder: (context) =>
-                                          //         PostAdScreen(),
-                                          //   ),
-                                          // ),
-                                          child: Row(
-                                            children: [
-                                              SizedBox(
-                                                width: 2,
-                                              ),
-                                              Image.asset(
-                                                  'assets/images/profile/user_profile/list_business.png'),
-                                              SizedBox(
-                                                width: 11,
-                                              ),
-                                              Text(
-                                                "Post an Event",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 14,
-                                                  color:
-                                                      kLoadingScreenTextColor,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 15),
-                                          child: Container(
-                                            height: 0.5,
-                                            color: kDrawerDividerColor,
-                                          ),
-                                        ),
                                         //post offer
                                         GestureDetector(
-                                          // onTap: () =>
-                                          //     Navigator.of(context).push(
-                                          //   MaterialPageRoute(
-                                          //     builder: (context) =>
-                                          //         PostOfferScreen(),
-                                          //   ),
-                                          // ),
+                                          onTap: () =>
+                                              Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  PostOfferScreen(),
+                                            ),
+                                          ),
                                           child: Row(
                                             children: [
                                               SizedBox(

@@ -1,5 +1,9 @@
 import 'package:ebuy/constants.dart';
+import 'package:ebuy/screens/bottom_bar/home/categories/blazer_information_screen.dart';
 import 'package:ebuy/screens/bottom_bar/home/categories/categories_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/categories/jeans_information_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/categories/shirts_information_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/categories/tshirts_information_screen.dart';
 import 'package:ebuy/screens/bottom_bar/home/drawer/about_us_screen.dart';
 import 'package:ebuy/screens/bottom_bar/home/drawer/privacy_policy_screen.dart';
 import 'package:ebuy/screens/bottom_bar/home/drawer/rate_us_screen.dart';
@@ -549,7 +553,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     //blazer
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => BlazerInformationScreen(),
+                        ),
+                      ),
                       child: Container(
                         height: 180,
                         width: 140,
@@ -585,7 +593,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => JeansInformationScreen(),
+                          ),
+                        ),
                         child: Container(
                           height: 180,
                           width: 140,
@@ -620,7 +632,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     //shirt
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ShirtsInformationScreen(),
+                        ),
+                      ),
                       child: Container(
                         height: 180,
                         width: 140,
@@ -656,7 +672,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => TShirtsInformationScreen(),
+                          ),
+                        ),
                         child: Container(
                           height: 180,
                           width: 140,
@@ -710,7 +730,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => BlazerInformationScreen(),
+                          ),
+                        ),
                         child: Container(
                           height: width / 2 + 14,
                           width: width / 2 - 25,
@@ -751,7 +775,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => JeansInformationScreen(),
+                          ),
+                        ),
                         child: Container(
                           height: width / 2 + 14,
                           width: width / 2 - 25,
@@ -795,7 +823,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => ShirtsInformationScreen(),
+                            ),
+                          ),
                           child: Container(
                             height: width / 2 + 14,
                             width: width / 2 - 25,
@@ -836,7 +868,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => TShirtsInformationScreen(),
+                            ),
+                          ),
                           child: Container(
                             height: width / 2 + 14,
                             width: width / 2 - 25,
@@ -946,6 +982,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 30,
               ),
             ],
           ),
