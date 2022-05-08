@@ -36,8 +36,10 @@ flutter:
     - assets/icons/drawer_icons/
     - assets/icons/privacy_settings/
     - assets/icons/plans/
+    - assets/icons/wallet/
     - assets/images/
     - assets/images/scan/
+    - assets/images/drawer/
     - assets/images/categories/
     - assets/images/onboarding/
     - assets/images/profile/

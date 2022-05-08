@@ -1,5 +1,12 @@
 import 'package:ebuy/constants.dart';
 import 'package:ebuy/screens/bottom_bar/home/categories/categories_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/drawer/about_us_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/drawer/privacy_policy_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/drawer/rate_us_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/drawer/settings/settings_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/drawer/terms_and_conditions_screen.dart';
+import 'package:ebuy/screens/bottom_bar/home/drawer/wallet/wallet_screen.dart';
+import 'package:ebuy/screens/bottom_bar/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -153,8 +160,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   end: Alignment
                       .bottomRight, // 10% of the width, so there are ten blinds.
                   colors: <Color>[
-                    Colors.redAccent.shade100,
-                    Colors.red.shade50,
+                    kSignInContainerColor,
+                    kSignUpContainerColor,
+                    Colors.white,
                   ], // red to yellow
                   tileMode: TileMode.repeated,
                 ),
@@ -179,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Text(
-                        "UserName",
+                        "User Name",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
@@ -187,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Text(
-                        "guestuser@gmail.com",
+                        "user@gmail.com",
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
@@ -211,140 +219,218 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    //My Bookings
-                    TextButton(
-                      onPressed: () {
-                        // Navigator.of(context).push(
-                        //   MaterialPageRoute(
-                        //       builder: (context) => const MyBookings()),
-                        // );
-                      },
-                      child: const Text(
-                        "My Bookings",
-                        //style: white14w300,
-                      ),
+                    //Switch to Vendor Profile
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 2,
+                        ),
+                        Image.asset(
+                            'assets/icons/drawer_icons/switch_to_vendor.png'),
+                        SizedBox(
+                          width: 12.5,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            setState(() {
+                              isUserProfile = !isUserProfile;
+                            });
+                          },
+                          child: Text(
+                            isUserProfile
+                                ? "Switch to Vendor Profile"
+                                : "Switch to User Profile",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: kLoadingScreenTextColor,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    //Need Help
-                    // TextButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context).push(
-                    //       MaterialPageRoute(
-                    //         builder: (context) => NeedHelp(),
-                    //       ),
-                    //     );
-                    //   },
-                    //   child: const Text(
-                    //     "Need Help",
-                    //     style: white14w300,
-                    //   ),
-                    // ),
-                    //Contact Us
-                    // TextButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context).push(
-                    //       MaterialPageRoute(
-                    //         builder: (context) => Contact(),
-                    //       ),
-                    //     );
-                    //   },
-                    //   child: const Text(
-                    //     "Contact Us",
-                    //     style: white14w300,
-                    //   ),
-                    // ),
-                    //My Wallet
-                    // TextButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context).push(
-                    //       MaterialPageRoute(
-                    //           builder: (context) => const WalletScreen()),
-                    //     );
-                    //   },
-                    //   child: const Text(
-                    //     "My Wallet",
-                    //     style: white14w300,
-                    //   ),
-                    // ),
-                    //Feedback
-                    // TextButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context).push(
-                    //       MaterialPageRoute(
-                    //         builder: (context) => FeedBack(),
-                    //       ),
-                    //     );
-                    //   },
-                    //   child: const Text(
-                    //     "Give us feedback",
-                    //     style: white14w300,
-                    //   ),
-                    // ),
-                    //Get Notifications
-                    // Padding(
-                    //   padding: const EdgeInsets.only(
-                    //     left: 8,
-                    //     top: 8,
-                    //     bottom: 8,
-                    //   ),
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //     children: [
-                    //       const Text(
-                    //         "Get notifications",
-                    //         style: white14w300,
-                    //       ),
-                    //       CustomSwitch(
-                    //         isActive: true,
-                    //         activeColor: const Color(0xFF59B2C6),
-                    //         inActiveColor: const Color(0xFF909090),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                    //Credit Points
-                    // TextButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context).push(
-                    //       MaterialPageRoute(builder: (context) => CreditPoints()),
-                    //     );
-                    //   },
-                    //   child: const Text(
-                    //     "Credit points",
-                    //     style: white14w300,
-                    //   ),
-                    // ),
-                    //Add Hotel
-                    // TextButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context).push(
-                    //       MaterialPageRoute(builder: (context) => AddHotel()),
-                    //     );
-                    //   },
-                    //   child: const Text(
-                    //     "Add hotel",
-                    //     style: white14w300,
-                    //   ),
-                    // ),
-                    //Share app
-                    // TextButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context).push(
-                    //       MaterialPageRoute(builder: (context) => ReferEarn()),
-                    //     );
-                    //   },
-                    //   child: const Text(
-                    //     "Share the app",
-                    //     style: white14w300,
-                    //   ),
-                    // ),
-                    //Log Out
-                    // TextButton(
-                    //   onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen(),),),
-                    //   child: const Text(
-                    //     "Log Out",
-                    //     style: white14w300,
-                    //   ),
-                    // ),
+                    //Wallet
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 2,
+                        ),
+                        Image.asset('assets/icons/drawer_icons/wallet.png'),
+                        SizedBox(
+                          width: 7,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const WalletScreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Wallet",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: kLoadingScreenTextColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    //Settings
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.settings,
+                          size: 20,
+                          color: Color(0x9932363D),
+                        ),
+                        SizedBox(
+                          width: 10.5,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const SettingsScreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Settings",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: kLoadingScreenTextColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    //Privacy
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.verified_user_outlined,
+                          size: 20,
+                          color: Color(0x9932363D),
+                        ),
+                        SizedBox(
+                          width: 10.5,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const PrivacyPolicyScreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Privacy",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: kLoadingScreenTextColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    //Terms & Conditions
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 2,
+                        ),
+                        Image.asset('assets/icons/drawer_icons/terms.png'),
+                        SizedBox(
+                          width: 12.5,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const TermsAndConditionsScreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Terms & Conditions",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: kLoadingScreenTextColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    //Rate us
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 2,
+                        ),
+                        Image.asset('assets/icons/drawer_icons/rate.png'),
+                        SizedBox(
+                          width: 12.5,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const RateUsScreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Rate us",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: kLoadingScreenTextColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    //About us
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 2,
+                        ),
+                        Icon(
+                          Icons.error_outline,
+                          size: 20,
+                          color: Color(0x9932363D),
+                        ),
+                        SizedBox(
+                          width: 10.5,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const AboutUsScreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "About us",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: kLoadingScreenTextColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

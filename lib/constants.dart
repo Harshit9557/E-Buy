@@ -22,3 +22,6 @@ Color kCreditPointScaffoldBackgroundColor = Color(0xFFEBEBEB);
 Color kSelectedStarColor = Color(0xFFFFE600);
 Color kWalletLightTextColor = Color(0xFF929292);
 Color kHomeScreenServicesContainerColor = Color(0xFFF1F6F7);
+Color kWalletScreenContainerColor = Color(0xFF67BFCF);
+Color kSettingsScreenLightContainerHeadingColor = Color(0xFF505359);
+Color kSuccessTextColor = Color(0xFF51C896);

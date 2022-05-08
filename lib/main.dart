@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         appBarTheme: AppBarTheme(
           elevation: 0.0,
+          backgroundColor: Colors.white,
         ),
       ),
       home: SplashScreen(),
