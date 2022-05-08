@@ -1,5 +1,4 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:ebuy/constants.dart';
 import 'package:ebuy/screens/bottom_bar/cart_screen.dart';
 import 'package:ebuy/screens/bottom_bar/home_screen.dart';
 import 'package:ebuy/screens/bottom_bar/notifications.dart';
@@ -62,14 +61,14 @@ class _MasterState extends State<Master> {
               ),
               child: CurvedNavigationBar(
                 key: navigationKey,
-                color: kSignUpContainerColor,
+                color: Color(0x40B1E0E9),
                 items: items,
                 height: 60,
                 animationCurve: Curves.easeInOut,
                 animationDuration: Duration(milliseconds: 300),
                 index: index,
                 backgroundColor: Colors.white,
-                buttonBackgroundColor: kSignInContainerColor,
+                buttonBackgroundColor: Color(0x6051B6C8),
                 onTap: (index) => setState(() {
                   this.index = index;
                 }),

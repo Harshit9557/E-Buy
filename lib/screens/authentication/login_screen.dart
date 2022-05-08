@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 20,
-                    color: Colors.redAccent,
+                    color: kSignInContainerColor,
                   ),
                 ),
               ),
@@ -146,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: Text(
                                   'OK',
                                   style: TextStyle(
-                                    color: Colors.redAccent,
+                                    color: kSignUpContainerColor,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 17,
                                   ),
@@ -164,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Colors.red.shade800,
+                      color: kSignInContainerColor,
                     ),
                     child: Padding(
                       padding: EdgeInsets.only(top: 15, bottom: 16),
@@ -183,22 +183,23 @@ class _LoginScreenState extends State<LoginScreen> {
               Center(
                 child: RichText(
                   text: TextSpan(
-                      text: 'Or login with ',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w400,
-                        color: kHintTextColor,
-                      ),
-                      children: [
-                        TextSpan(
-                          text: ' Social Networks',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.redAccent,
-                          ),
+                    text: 'Or login with ',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                      color: kHintTextColor,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: ' Social Networks',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                          color: kSignInContainerColor,
                         ),
-                      ]),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               //social networks
@@ -243,7 +244,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Center(
                 child: RichText(
                   text: TextSpan(
-                    text: 'New to The Hours? ',
+                    text: 'New to E-Buy? ',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
@@ -255,7 +256,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w400,
-                          color: Colors.redAccent,
+                          color: kSignInContainerColor,
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () => {

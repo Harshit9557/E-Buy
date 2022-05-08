@@ -38,6 +38,7 @@ flutter:
     - assets/icons/plans/
     - assets/images/
     - assets/images/scan/
+    - assets/images/categories/
     - assets/images/onboarding/
     - assets/images/profile/
     - assets/images/profile/user_profile/

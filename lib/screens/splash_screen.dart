@@ -168,7 +168,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       effect: WormEffect(
                         spacing: 13,
                         dotColor: kOnBoardingScreenUnselectedDotColor,
-                        activeDotColor: kOnBoardingScreenNextColor,
+                        activeDotColor: kSignInContainerColor,
                         dotHeight: 7,
                         dotWidth: 7,
                       ),
@@ -202,7 +202,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
-                        color: kOnBoardingScreenNextColor,
+                        color: kSignInContainerColor,
                       ),
                     ),
                   ),

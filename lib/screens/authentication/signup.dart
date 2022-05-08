@@ -75,7 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 20,
-                    color: Colors.redAccent,
+                    color: kSignInContainerColor,
                   ),
                 ),
               ),
@@ -178,7 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 child: Text(
                                   'OK',
                                   style: TextStyle(
-                                    color: Colors.redAccent,
+                                    color: kSignInContainerColor,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 17,
                                   ),
@@ -196,7 +196,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Colors.red.shade800,
+                      color: kSignInContainerColor,
                     ),
                     child: Padding(
                       padding: EdgeInsets.only(top: 15, bottom: 16),
@@ -226,7 +226,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
-                            color: Colors.redAccent,
+                            color: kSignInContainerColor,
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () => {

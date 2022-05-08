@@ -20,7 +20,7 @@ class _OTPState extends State<OTP> {
     borderRadius: BorderRadius.circular(12),
     color: kScaffoldBackgroundColor,
     border: Border.all(
-      color: Colors.red,
+      color: kSignUpContainerColor,
     ),
   );
 
@@ -101,7 +101,7 @@ class _OTPState extends State<OTP> {
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 13,
-                          color: Colors.redAccent,
+                          color: kSignInContainerColor,
                         ),
                       ),
                     ]),
@@ -132,7 +132,7 @@ class _OTPState extends State<OTP> {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: kSignInContainerColor,
                     ),
                     child: Padding(
                       padding: EdgeInsets.only(top: 15, bottom: 16),
