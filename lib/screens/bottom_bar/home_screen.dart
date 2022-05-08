@@ -109,9 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.red.shade50,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.red.shade50,
+        backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         title: Text(
           'Home',
@@ -377,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   effect: WormEffect(
                     spacing: 10,
                     dotColor: kOnBoardingScreenUnselectedDotColor,
-                    activeDotColor: kOnBoardingScreenNextColor,
+                    activeDotColor: kSignInContainerColor,
                     dotHeight: 7,
                     dotWidth: 7,
                   ),

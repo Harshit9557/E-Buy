@@ -1,3 +1,4 @@
+import 'package:ebuy/constants.dart';
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -11,9 +12,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red.shade50,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.red.shade50,
+        backgroundColor: Colors.white,
         title: Text(
           'Notifications',
           style: TextStyle(
@@ -34,7 +35,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 'Today',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: Colors.red,
+                  color: Colors.black,
                   fontSize: 18,
                 ),
               ),
@@ -51,7 +52,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       child: Row(
                         children: [
                           CircleAvatar(
-                            backgroundColor: Colors.white,
+                            backgroundColor: kSignUpContainerColor,
                             radius: 24,
                           ),
                           SizedBox(
@@ -73,7 +74,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   },
                   separatorBuilder: (BuildContext context, int index) =>
                       Divider(
-                    color: Colors.grey.shade600,
+                    color: kDrawerDividerColor,
                     height: 23,
                   ),
                 ),
@@ -82,7 +83,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 'Yesterday',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: Colors.red,
+                  color: Colors.black,
                   fontSize: 18,
                 ),
               ),
@@ -98,7 +99,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       child: Row(
                         children: [
                           CircleAvatar(
-                            backgroundColor: Colors.white,
+                            backgroundColor: kSignUpContainerColor,
                             radius: 24,
                           ),
                           SizedBox(
@@ -120,7 +121,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   },
                   separatorBuilder: (BuildContext context, int index) =>
                       Divider(
-                    color: Colors.grey.shade600,
+                    color: kDrawerDividerColor,
                     height: 23,
                   ),
                 ),
