@@ -1,5 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:ebuy/screens/bottom_bar/cart_screen.dart';
+import 'package:ebuy/screens/bottom_bar/cart/cart_screen.dart';
 import 'package:ebuy/screens/bottom_bar/home_screen.dart';
 import 'package:ebuy/screens/bottom_bar/notifications.dart';
 import 'package:ebuy/screens/bottom_bar/profile/profile_screen.dart';

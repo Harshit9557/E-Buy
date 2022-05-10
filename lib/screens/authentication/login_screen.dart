@@ -1,10 +1,12 @@
 import 'package:ebuy/constants.dart';
+import 'package:ebuy/screens/authentication/google_authentication.dart';
 import 'package:ebuy/screens/authentication/otp.dart';
 import 'package:ebuy/screens/authentication/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 int flag = 0;
 
@@ -209,7 +211,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        final provider =
+                            Provider.of<CurrentUser>(context, listen: false);
+                        provider.googleLogin();
+                      },
                       child: SvgPicture.asset(
                         'assets/icons/icons8-google.svg',
                         height: 35,

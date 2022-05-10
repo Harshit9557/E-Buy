@@ -1,8 +1,10 @@
 import 'package:ebuy/constants.dart';
 import 'package:ebuy/screens/authentication/login_screen.dart';
 import 'package:ebuy/screens/bottom_bar/master_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pin_put/pin_put.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
 class OTP extends StatefulWidget {
   const OTP({required this.phone, required this.flag});
@@ -14,6 +16,8 @@ class OTP extends StatefulWidget {
 }
 
 class _OTPState extends State<OTP> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  late String _verificationCode;
   final FocusNode _pinPutFocusNode = FocusNode();
   final TextEditingController _pinPutController = TextEditingController();
   final BoxDecoration pinPutDecoration = BoxDecoration(
@@ -25,8 +29,20 @@ class _OTPState extends State<OTP> {
   );
 
   @override
+  void initState() {
+    _verifyOTP();
+    super.initState();
+    _listenOtp();
+  }
+
+  void _listenOtp() async {
+    await SmsAutoFill().listenForCode();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -65,25 +81,7 @@ class _OTPState extends State<OTP> {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: PinPut(
-                  eachFieldHeight: 60,
-                  eachFieldWidth: 56,
-                  fieldsCount: 4,
-                  autofocus: true,
-                  textStyle: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  focusNode: _pinPutFocusNode,
-                  controller: _pinPutController,
-                  submittedFieldDecoration: pinPutDecoration,
-                  selectedFieldDecoration: pinPutDecoration,
-                  followingFieldDecoration: pinPutDecoration,
-                  pinAnimationType: PinAnimationType.fade,
-                ),
-              ),
+              _textOTP(),
               SizedBox(
                 height: 62,
               ),
@@ -150,6 +148,89 @@ class _OTPState extends State<OTP> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  _verifyOTP() async {
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: '+91${widget.phone}',
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        await FirebaseAuth.instance
+            .signInWithCredential(credential)
+            .then((value) async {
+          if (value.user != null) {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Master(
+                    phone: widget.phone,
+                  ),
+                ),
+                (route) => false);
+          }
+        });
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        print(e.message);
+      },
+      codeSent: (String verificationID, int? resendToken) {
+        setState(() {
+          _verificationCode = verificationID;
+        });
+      },
+      codeAutoRetrievalTimeout: (String verificationID) {
+        setState(() {
+          _verificationCode = verificationID;
+        });
+      },
+      timeout: Duration(seconds: 60),
+    );
+  }
+
+  _textOTP() {
+    return Padding(
+      padding: EdgeInsets.only(top: 30, bottom: 72),
+      child: PinPut(
+        eachFieldHeight: 40,
+        eachFieldWidth: 40,
+        fieldsCount: 6,
+        autofocus: true,
+        textStyle: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w400,
+        ),
+        focusNode: _pinPutFocusNode,
+        controller: _pinPutController,
+        submittedFieldDecoration: pinPutDecoration,
+        selectedFieldDecoration: pinPutDecoration,
+        followingFieldDecoration: pinPutDecoration,
+        pinAnimationType: PinAnimationType.fade,
+        onSubmit: (pin) async {
+          try {
+            await FirebaseAuth.instance
+                .signInWithCredential(PhoneAuthProvider.credential(
+                    verificationId: _verificationCode, smsCode: pin))
+                .then((value) async {
+              if (value.user != null)
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Master(
+                        phone: widget.phone,
+                      ),
+                    ),
+                    (route) => false);
+            });
+          } catch (e) {
+            FocusScope.of(context).unfocus();
+            _scaffoldKey.currentState?.showSnackBar(
+              SnackBar(
+                content: Text('Invalid OTP'),
+              ),
+            );
+          }
+        },
       ),
     );
   }

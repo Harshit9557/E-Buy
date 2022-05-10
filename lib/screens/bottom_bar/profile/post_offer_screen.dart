@@ -54,7 +54,7 @@ class _PostOfferScreenState extends State<PostOfferScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -93,13 +93,15 @@ class _PostOfferScreenState extends State<PostOfferScreen> {
               Stack(
                 children: [
                   Container(
-                    width: width - 68,
-                    height: width - 68,
+                    width: width - 48,
+                    height: width - 48,
                     decoration: BoxDecoration(
                       color: kAdvertiseContainerTextColor,
                       borderRadius: BorderRadius.circular(5),
                       image: DecorationImage(
-                        image: AssetImage('assets/images/post_ad.png'),
+                        image: AssetImage(
+                          'assets/images/post_ad.png',
+                        ),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -107,7 +109,7 @@ class _PostOfferScreenState extends State<PostOfferScreen> {
                   Positioned(
                     top: 10,
                     child: Container(
-                      width: width - 210,
+                      width: width - 180,
                       decoration: BoxDecoration(
                         color: kSignInContainerColor,
                         borderRadius: BorderRadius.only(
@@ -116,7 +118,8 @@ class _PostOfferScreenState extends State<PostOfferScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 20, horizontal: 20),
                         child: Text(
                           "60% OFF ",
                           style: TextStyle(
